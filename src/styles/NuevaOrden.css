@@ -1,0 +1,83 @@
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+
+  margin-top: 20px;
+}
+
+.producto-card {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.producto-card h3 {
+  margin-bottom: 10px;
+}
+
+.producto-card button {
+  margin-top: 15px;
+
+  width: 100%;
+
+  border: none;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: #6B3E26;
+  color: white;
+}
+
+.producto-card button:hover {
+  background: #8B5A3C;
+}.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+
+  margin-top: 20px;
+}
+
+.producto-card {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.producto-card h3 {
+  margin-bottom: 10px;
+}
+
+.producto-card button {
+  margin-top: 15px;
+
+  width: 100%;
+
+  border: none;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: #6B3E26;
+  color: white;
+}
+
+.producto-card button:hover {
+  background: #8B5A3C;
+}
