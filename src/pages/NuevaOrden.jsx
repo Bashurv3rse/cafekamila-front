@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { getProductos } from "../api/api";
+import {
+  getProductos,
+  createPedido
+} from "../api/api";
 import "../styles/NuevaOrden.css";
 
 function NuevaOrden() {
@@ -79,6 +82,55 @@ function NuevaOrden() {
     return acum + obtenerPrecio(item) * item.cantidad;
   }, 0);
 
+    const registrarPedido = async () => {
+
+    if (!nombreCliente.trim()) {
+        alert("Ingrese el nombre del cliente");
+        return;
+    }
+
+    if (carrito.length === 0) {
+        alert("Agregue al menos un producto");
+        return;
+    }
+
+    const pedido = {
+        nombreCliente,
+        tipoPedido: tipoPrecio,
+        detalles: carrito.map((item) => ({
+        idProducto: item.idProducto,
+        cantidad: item.cantidad,
+        })),
+    };
+
+    try {
+
+        const respuesta = await createPedido(pedido);
+
+        alert(
+        `Pedido #${respuesta.idPedido} registrado correctamente`
+        );
+
+        // Limpiar formulario
+        setCarrito([]);
+        setNombreCliente("");
+        setTipoPrecio("Menor");
+
+        // Recargar productos para reflejar stock actualizado
+        const productosActualizados =
+        await getProductos();
+
+        setProductos(productosActualizados);
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+        "Error al registrar el pedido"
+        );
+    }
+    };
   return (
     <div>
       <h1>Nueva Orden</h1>
@@ -220,9 +272,12 @@ function NuevaOrden() {
             <h2>S/ {total.toFixed(2)}</h2>
           </div>
 
-          <button className="btn-registrar">
+          <button
+            className="btn-registrar"
+            onClick={registrarPedido}
+            >
             Registrar Pedido
-          </button>
+            </button>
         </section>
 
       </div>
