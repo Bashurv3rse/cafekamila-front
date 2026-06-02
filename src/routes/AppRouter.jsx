@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard";
 import NuevaOrden from "../pages/NuevaOrden";
 import Seguimiento from "../pages/Seguimiento";
 import Historial from "../pages/Historial";
+import Incidencias from "../pages/Incidencias";
 
 function AppRouter() {
   return (
@@ -48,6 +49,14 @@ function AppRouter() {
           }
         />
 
+          <Route
+          path="/incidencias"
+          element={
+            <MainLayout>
+              <Incidencias />
+            </MainLayout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -42,6 +42,14 @@ function Sidebar() {
           <span>Historial</span>
         </NavLink>
 
+        <NavLink
+          to="/incidencias"
+          className="nav-link"
+        >
+          <FaHistory />
+          <span>Incidencias</span>
+        </NavLink>
+
       </nav>
     </div>
   );
