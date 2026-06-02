@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {
   PieChart,
   Pie,
+  Cell,
   Tooltip,
   Legend,
   ResponsiveContainer
@@ -112,7 +113,13 @@ function Dashboard() {
       value: cancelados }
 
   ];
-
+  const COLORS = [
+  "#f39c12", // Pendiente
+  "#3498db", // Preparación
+  "#50f3eb", // Listo
+  "#27ae60", // Entregado
+  "#e74c3c"  // Cancelado
+    ];
   const ultimosPedidos =
     [...pedidos]
       .sort(
@@ -199,13 +206,22 @@ function Dashboard() {
 
             <PieChart>
 
-              <Pie
+                <Pie
                 data={estadosData}
                 dataKey="value"
                 nameKey="name"
                 outerRadius={100}
                 label
-              />
+                >
+                {estadosData.map((entry, index) => (
+                    <Cell
+                    key={`cell-${index}`}
+                    fill={
+                        COLORS[index % COLORS.length]
+                    }
+                    />
+                ))}
+                </Pie>
 
               <Tooltip />
 

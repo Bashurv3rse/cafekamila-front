@@ -7,13 +7,39 @@ import {
 } from "react-icons/fa";
 
 function Sidebar() {
+
+  const usuario = JSON.parse(
+    localStorage.getItem("usuario")
+  );
+
+  const cerrarSesion = () => {
+    localStorage.removeItem("usuario");
+    window.location.href = "/login";
+  };
+
   return (
     <div className="sidebar">
+
       <h2 className="logo">Cafetería</h2>
+
+      <div className="user-info">
+        <p>
+          <strong>Usuario:</strong>{" "}
+          {usuario?.username}
+        </p>
+
+        <p>
+          <strong>Rol:</strong>{" "}
+          {usuario?.rol}
+        </p>
+      </div>
 
       <nav>
 
-        <NavLink to="/" className="nav-link">
+        <NavLink
+          to="/"
+          className="nav-link"
+        >
           <FaHome />
           <span>Dashboard</span>
         </NavLink>
@@ -51,6 +77,14 @@ function Sidebar() {
         </NavLink>
 
       </nav>
+
+      <button
+        className="logout-btn"
+        onClick={cerrarSesion}
+      >
+        Cerrar Sesión
+      </button>
+
     </div>
   );
 }
