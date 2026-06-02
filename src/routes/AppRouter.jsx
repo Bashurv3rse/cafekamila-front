@@ -9,6 +9,7 @@ import Historial from "../pages/Historial";
 import Incidencias from "../pages/Incidencias";
 import Login from "../pages/Login";
 import ProtectedRoute from "../components/ProtectedRoute";
+import PantallaCliente from "../pages/PantallaCliente";
 
 function AppRouter() {
   return (
@@ -61,6 +62,17 @@ function AppRouter() {
               <Historial />
             </MainLayout>
           </ProtectedRoute> 
+          }
+        />
+
+        <Route
+          path="/pantalla-cliente"
+          element={
+            <ProtectedRoute>
+              <MainLayout>
+                <PantallaCliente />
+              </MainLayout>
+            </ProtectedRoute>
           }
         />
 

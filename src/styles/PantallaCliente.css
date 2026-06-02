@@ -1,0 +1,73 @@
+.pantalla-cliente {
+  padding: 30px;
+}
+
+.pantalla-cliente h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.actualizacion {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.estado-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, 1fr);
+  gap: 24px;
+}
+
+.estado-grid h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cliente-card {
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+  margin-bottom: 20px;
+  min-height: 220px;
+  box-shadow:
+    0 4px 12px
+    rgba(0,0,0,0.15);
+}
+
+.pendiente {
+  background: #f59e0b;
+}
+
+.preparacion {
+  background: #3b82f6;
+}
+
+.listo {
+  background: #22c55e;
+}
+
+.cliente-card h2 {
+  margin-bottom: 15px;
+}
+
+.productos {
+  margin-top: 15px;
+}
+
+.productos div {
+  margin-bottom: 8px;
+}
+
+.tiempo {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.mensaje-listo {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}

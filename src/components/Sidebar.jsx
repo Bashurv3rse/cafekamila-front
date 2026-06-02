@@ -3,7 +3,8 @@ import {
   FaHome,
   FaClipboardList,
   FaHistory,
-  FaTruck
+  FaTruck,
+  FaDesktop
 } from "react-icons/fa";
 
 function Sidebar() {
@@ -74,6 +75,16 @@ function Sidebar() {
         >
           <FaHistory />
           <span>Incidencias</span>
+        </NavLink>
+
+        <NavLink
+        to="/pantalla-cliente"
+        className="nav-link"
+        >
+        <FaDesktop />
+        <span>
+            Pantalla Cliente
+        </span>
         </NavLink>
 
       </nav>
