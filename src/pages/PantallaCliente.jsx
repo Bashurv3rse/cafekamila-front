@@ -59,20 +59,34 @@ function PantallaCliente() {
 
   };
 
-  useEffect(() => {
+useEffect(() => {
 
-    cargarPedidos();
+  const init = async () => {
 
-    const intervalo =
-      setInterval(
-        cargarPedidos,
-        5000
-      );
+    try {
 
-    return () =>
-      clearInterval(intervalo);
+      await cargarPedidos();
 
-  }, []);
+    } catch (error) {
+
+      console.error(error);
+
+    }
+
+  };
+
+  init();
+
+  const intervalo =
+    setInterval(
+      cargarPedidos,
+      5000
+    );
+
+  return () =>
+    clearInterval(intervalo);
+
+}, []);
 
   const renderPedidos = (
     pedidos,
