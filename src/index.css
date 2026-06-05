@@ -23,6 +23,9 @@ body {
   background-color: #6B3E26;
   color: white;
   padding: 20px;
+  display:flex;
+  flex-direction:column;
+  height:100vh;
 }
 
 .logo {
@@ -32,6 +35,7 @@ body {
 
 nav {
   display: flex;
+  flex:1;
   flex-direction: column;
   gap: 15px;
 }

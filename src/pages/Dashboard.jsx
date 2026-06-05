@@ -17,6 +17,7 @@ function Dashboard() {
 
   const [pedidos, setPedidos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [mostrarReportes, setMostrarReportes] = useState(false);
 
   useEffect(() => {
 
@@ -48,6 +49,24 @@ function Dashboard() {
     cargarDatos();
 
   }, []);
+
+  const descargarPedidos = () => {
+
+  window.open(
+    "http://localhost:8080/pedidos/exportar",
+    "_blank"
+  );
+
+};
+
+const descargarHistorial = () => {
+
+  window.open(
+    "http://localhost:8080/pedidos/historial/exportar",
+    "_blank"
+  );
+
+};
 
   if (loading) {
     return <p>Cargando dashboard...</p>;
@@ -164,6 +183,41 @@ function Dashboard() {
         >
           Incidencias
         </Link>
+
+        <div className="reportes-dropdown">
+
+          <button
+            className="quick-btn"
+            onClick={() =>
+              setMostrarReportes(
+                !mostrarReportes
+              )
+            }
+          >
+            📊 Reportes ▼
+          </button>
+
+          {mostrarReportes && (
+
+            <div className="dropdown-menu">
+
+              <button
+                onClick={descargarPedidos}
+              >
+                Descargar Pedidos
+              </button>
+
+              <button
+                onClick={descargarHistorial}
+              >
+                Descargar Historial
+              </button>
+
+            </div>
+
+          )}
+
+        </div>
 
       </div>
 
