@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Historial() {
 
   const [pedidos, setPedidos] = useState([]);
@@ -12,9 +14,9 @@ function Historial() {
 
       try {
 
-        const response = await axios.get(
-          "http://localhost:8080/pedidos/historial"
-        );
+      const response = await axios.get(
+        `${API_URL}/pedidos/historial`
+      );
 
         setPedidos(response.data);
 

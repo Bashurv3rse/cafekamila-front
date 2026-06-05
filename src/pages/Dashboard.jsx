@@ -13,6 +13,8 @@ import {
 
 import "../styles/Dashboard.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Dashboard() {
 
   const [pedidos, setPedidos] = useState([]);
@@ -25,9 +27,9 @@ function Dashboard() {
 
       try {
 
-        const response = await axios.get(
-          "http://localhost:8080/pedidos"
-        );
+      const response = await axios.get(
+        `${API_URL}/pedidos`
+      );
 
         setPedidos(response.data);
 
@@ -53,7 +55,7 @@ function Dashboard() {
   const descargarPedidos = () => {
 
   window.open(
-    "http://localhost:8080/pedidos/exportar",
+    `${API_URL}/pedidos/exportar`,
     "_blank"
   );
 
@@ -62,7 +64,7 @@ function Dashboard() {
 const descargarHistorial = () => {
 
   window.open(
-    "http://localhost:8080/pedidos/historial/exportar",
+    `${API_URL}/pedidos/historial/exportar`,
     "_blank"
   );
 
