@@ -4,7 +4,8 @@ import {
   FaClipboardList,
   FaHistory,
   FaTruck,
-  FaDesktop
+  FaDesktop,
+  FaBox
 } from "react-icons/fa";
 
 function Sidebar() {
@@ -45,21 +46,53 @@ function Sidebar() {
           <span>Dashboard</span>
         </NavLink>
 
-        <NavLink
-          to="/nueva-orden"
-          className="nav-link"
-        >
-          <FaClipboardList />
-          <span>Nueva Orden</span>
-        </NavLink>
+          {usuario?.rol === "PERSONAL" && (
+          <>
+            <NavLink
+              to="/nueva-orden"
+              className="nav-link"
+            >
+              <FaClipboardList />
+              <span>Nueva Orden</span>
+            </NavLink>
 
-        <NavLink
-          to="/seguimiento"
-          className="nav-link"
-        >
-          <FaTruck />
-          <span>Seguimiento</span>
-        </NavLink>
+            <NavLink
+              to="/seguimiento"
+              className="nav-link"
+            >
+              <FaTruck />
+              <span>Seguimiento</span>
+            </NavLink>
+
+            <NavLink
+              to="/incidencias"
+              className="nav-link"
+            >
+              <FaHistory />
+              <span>Incidencias</span>
+            </NavLink>
+
+            <NavLink
+              to="/pantalla-cliente"
+              className="nav-link"
+            >
+              <FaDesktop />
+              <span>Pantalla Cliente</span>
+            </NavLink>
+          </>
+        )}
+
+           {usuario?.rol === "ADMIN" && (
+          <>
+            <NavLink
+              to="/admin-productos"
+              className="nav-link"
+            >
+              <FaBox />
+              <span>Productos</span>
+            </NavLink>
+          </>
+        )}
 
         <NavLink
           to="/historial"
@@ -67,24 +100,6 @@ function Sidebar() {
         >
           <FaHistory />
           <span>Historial</span>
-        </NavLink>
-
-        <NavLink
-          to="/incidencias"
-          className="nav-link"
-        >
-          <FaHistory />
-          <span>Incidencias</span>
-        </NavLink>
-
-        <NavLink
-        to="/pantalla-cliente"
-        className="nav-link"
-        >
-        <FaDesktop />
-        <span>
-            Pantalla Cliente
-        </span>
         </NavLink>
 
       </nav>

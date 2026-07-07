@@ -18,6 +18,11 @@ function Dashboard() {
   const [pedidos, setPedidos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mostrarReportes, setMostrarReportes] = useState(false);
+  const usuario = JSON.parse(
+  localStorage.getItem("usuario")
+);
+
+const rol = usuario?.rol;
 
   useEffect(() => {
 
@@ -156,33 +161,55 @@ const descargarHistorial = () => {
 
       <div className="quick-actions">
 
-        <Link
-          to="/nueva-orden"
-          className="quick-btn"
-        >
-          Nuevo Pedido
-        </Link>
+        {rol === "PERSONAL" && (
+          <>
+            <Link
+              to="/nueva-orden"
+              className="quick-btn"
+            >
+              Nuevo Pedido
+            </Link>
 
-        <Link
-          to="/seguimiento"
-          className="quick-btn"
-        >
-          Seguimiento
-        </Link>
+            <Link
+              to="/seguimiento"
+              className="quick-btn"
+            >
+              Seguimiento
+            </Link>
 
-        <Link
-          to="/historial"
-          className="quick-btn"
-        >
-          Historial
-        </Link>
+            <Link
+              to="/historial"
+              className="quick-btn"
+            >
+              Historial
+            </Link>
 
-        <Link
-          to="/incidencias"
-          className="quick-btn"
-        >
-          Incidencias
-        </Link>
+            <Link
+              to="/incidencias"
+              className="quick-btn"
+            >
+              Incidencias
+            </Link>
+          </>
+        )}
+
+        {rol === "ADMIN" && (
+          <>
+            <Link
+              to="/admin-productos"
+              className="quick-btn"
+            >
+              Productos
+            </Link>
+
+            <Link
+              to="/historial"
+              className="quick-btn"
+            >
+              Historial
+            </Link>
+          </>
+        )}
 
         <div className="reportes-dropdown">
 
@@ -198,7 +225,6 @@ const descargarHistorial = () => {
           </button>
 
           {mostrarReportes && (
-
             <div className="dropdown-menu">
 
               <button
@@ -214,7 +240,6 @@ const descargarHistorial = () => {
               </button>
 
             </div>
-
           )}
 
         </div>

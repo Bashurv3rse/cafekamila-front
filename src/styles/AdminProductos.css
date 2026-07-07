@@ -1,0 +1,67 @@
+.admin-productos {
+  padding: 20px;
+}
+
+.form-producto {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.form-producto input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #acabab;
+}
+
+.form-producto button {
+  background: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla-productos th {
+  background: #f4f4f4;
+}
+
+.btn-eliminar {
+  background: #e74c3c;
+  color: white;
+  border: none;
+
+  padding: 8px 14px;
+
+  border-radius: 6px;
+  cursor: pointer;
+
+  min-width: 90px;
+  white-space: nowrap;
+}
+.btn-editar {
+  background: #3498db;
+  color: white;
+  border: none;
+
+  padding: 8px 14px;
+  border-radius: 6px;
+
+  cursor: pointer;
+  margin-right: 8px;
+
+  min-width: 80px;
+}
