@@ -10,6 +10,7 @@ import Incidencias from "../pages/Incidencias";
 import Login from "../pages/Login";
 import ProtectedRoute from "../components/ProtectedRoute";
 import PantallaCliente from "../pages/PantallaCliente";
+import AdminProductos from "../pages/AdminProductos";
 
 function AppRouter() {
   return (
@@ -84,6 +85,18 @@ function AppRouter() {
               <Incidencias />
             </MainLayout>
           </ProtectedRoute> 
+          }
+        />
+          <Route
+          path="/admin-productos"
+          element={
+            <ProtectedRoute
+              rolesPermitidos={["ADMIN"]}
+            >
+              <MainLayout>
+                <AdminProductos />
+              </MainLayout>
+            </ProtectedRoute>
           }
         />
       </Routes>
